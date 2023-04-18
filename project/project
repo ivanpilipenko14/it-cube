@@ -1,0 +1,51 @@
+alfavit_EU="A1.B2/C3,D4.E5/F6,G7.H8/I9,J0.K1/L2,M3.N4/O5,P6.Q7/R8,S9.T0/U1,V2.W3/X4,Y5.Z6/A7,B8.C9/D0,E1.F2/G3,H4.I5/J6,K7.L8/M9,N0.O1/P2,Q3.R4/S5,T6.U7/V8,W8.X9/Y0,Z1." #3 с4оздаем  английский алфавит
+alfavit_RU="А1,Б2.В3/Г4,Д5.Е6/Ё7,Ж8.З9/И0,Й1.К2/Л3,М4.Н5/О6,П7.Р8/С9,Т0.У1/Ф2,Х3.Ц4/Ч5,Ш6.Щ7/Ъ8,Ы9.Ь0/Э1,Ю2.Я3/А4,Б5.В6/Г7,Д8.Е9/Ё0,Ж1.З2/И3,Й4.К5/Л6,М7.Н8/О9,П0.Р1/С2,Т3.У4/Ф5,Х6.Ц7/Ч8,Ш9.Щ0/Ъ1,Ы2.Ь3/Э4,Ю5.Я6/"  # создаем  русский алфавит
+action=input("введите действие которое вы хотите совершить(шифровка/рассшифровка)  ") # запрашиваем действие у пользователя 
+itog="" #создаем отдельную переменную которая будет принимать в себя готовое сообщение
+if action == "шифровка":   
+    language=input("выберете язык (RU/EU)  ") #запрашиваем у пользователя язык сообщения
+    if language == "RU":
+        messege=input("введите сообщение для шифровки  ").upper() # запрашиваем сообщение  для шифровки и переводим в верхний регистр 
+        step=int(input("введите шаг шифровки  ")) # запрашиваем шаг шифровки
+        for i in messege: #проходимся циклом по нашему сообщению
+           plase = alfavit_RU.find(i) # создаем цикл for,определяем место букв в нашем списке alfavit, после чего определяем их новые места:
+           new_plase = plase + step
+           if i in alfavit_RU:
+                itog += alfavit_RU[new_plase]
+           else:
+                itog += i
+    if language == "EU":
+        message=input("введите сообщение для шифровки  ").upper() # запрашиваем сообщение  для шифровки и переводим в верхний регистр 
+        step=int(input("введите шаг шифровки  ")) # запрашиваем шаг шифровки
+        for i in messege:
+            plase = alfavit_EU.find(i)
+            new_plase = plase + step
+            if i in alfavit_EU:
+               itog += alfavit_EU[new_plase]
+            else:
+               itog += i
+print (itog)
+    
+if action == "рассшифровка":
+    language=input("выберете язык (RU/EU)  ")
+    if language == "RU":
+        message=input("введите сообщение для рассшифровки  ").upper()
+        step=int(input("введите шаг для рассшифровки(который вы выбирали при шифровке только со знаком минуса)  "))
+        for i in message:
+            plase = alfavit_EU.find(i)
+            new_plase = plase + step
+            if i in alfavit_EU:
+                itog += alfavit_EU[new_plase]
+            else:
+                itog += i
+    if language == "EU":
+        message=input("введите сообщение для рассшифровки  ").upper()
+        step=int(input("введите шаг для рассшифровки(который вы выбирали при шифровке только со знаком минуса)  "))
+        for i in message:
+            plase = alfavit_EU.find(i)
+            new_plase = plase + step
+            if i in alfavit_EU:
+                itog += alfavit_EU[new_plase]
+            else:
+                itog += i
+print (itog)
