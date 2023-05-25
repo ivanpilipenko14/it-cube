@@ -1,10 +1,10 @@
-m=int(input("масса"))
-h=m=int(input("рост"))
-i= m/h**2
-if 18.5<i<25:
-    print("оптимальная масса ")
-elif i>25:
-    print("избыточная масса ")
-elif 18.5>i:
-    print("недостаточная масса")
-
+s=input("введите натуральные числа")
+counter=0
+lst=[]
+lst.extend(s)
+print(lst)
+long=len(lst)
+for i in range(long): 
+    if i<i+1:
+        counter+=1
+print(counter-1)
